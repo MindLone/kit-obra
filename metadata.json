@@ -1,0 +1,6 @@
+{
+  "name": "Quanto Cobrar na Obra",
+  "description": "Calculadora e tabela de preços de referência de mão de obra para pedreiros e profissionais da construção civil.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

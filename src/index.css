@@ -1,0 +1,80 @@
+@import "tailwindcss";
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-tap-highlight-color: transparent;
+    touch-action: manipulation;
+  }
+  
+  body {
+    font-family: 'Plus Jakarta Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  /* Evita que o iOS faça zoom automático ao focar em inputs (exige mínimo 16px no mobile) */
+  input, select, textarea {
+    font-size: 16px;
+  }
+}
+
+/* Ocultar barra de rolagem horizontal mantendo rolagem por toque */
+.scrollbar-none::-webkit-scrollbar {
+  display: none;
+}
+.scrollbar-none {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Safe area padding para iPhones modernos */
+.pb-safe {
+  padding-bottom: env(safe-area-inset-bottom, 1rem);
+}
+
+/* Feedback tátil em botões móveis */
+@media (hover: none) and (pointer: coarse) {
+  button:active, a:active {
+    transform: scale(0.97);
+  }
+}
+
+/* Estilos de Impressão para o Orçamento */
+@media print {
+  .no-print,
+  header,
+  footer,
+  aside,
+  button:not(.print-allow) {
+    display: none !important;
+  }
+
+  body {
+    background: white !important;
+    color: black !important;
+    font-size: 11pt !important;
+  }
+
+  #printable-budget-document {
+    padding: 0 !important;
+    margin: 0 !important;
+    width: 100% !important;
+  }
+}
+
+/* Pulsação sutil na sombra verde do botão de compra */
+@keyframes softPulseShadow {
+  0%, 100% {
+    box-shadow: 0 4px 14px 0 rgba(37, 211, 102, 0.35);
+  }
+  50% {
+    box-shadow: 0 10px 26px 4px rgba(37, 211, 102, 0.7);
+  }
+}
+
+.animate-pulse-shadow {
+  animation: softPulseShadow 2.2s infinite ease-in-out;
+}
+
